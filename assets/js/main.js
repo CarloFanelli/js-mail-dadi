@@ -58,7 +58,7 @@ if (userNumber > computerNumber) {
  */
 
 // chiedo la mail all'utente
-const userMail = prompt('inserisci la tua email:');
+//const userMail = prompt('inserisci la tua email:'); - ho l'input in pagina
 
 // lista di mail che possono accedere
 const mailsList = ['carlo@gmail.com','pino@gmail.com','gino@gmail.com','piero@gmail.com','andrea@gmail.com','luigi@gmail.com']
@@ -85,10 +85,22 @@ const mailsList = ['carlo@gmail.com','pino@gmail.com','gino@gmail.com','piero@gm
     console.log(esitoMail);
 }  */
 
+
+// aggiungo event listener al pulsante del form
+
+document.getElementById('checkMailButton').addEventListener('click', function(e){ 
+    e.preventDefault();
+    const emailUserDOM = document.getElementById('emailUser').value;
+
+   console.log(emailUserDOM);
+
+
 //metodo senza ciclo -- più performante
 
-    if (mailsList.includes(userMail)) {
+   /*  if (mailsList.includes(emailUser)) {
         console.log('include');
     } else {
         console.log('non include');
-    }
+    } */
+
+})
