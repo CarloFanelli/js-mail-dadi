@@ -28,18 +28,18 @@ if (userNumber > computerNumber) {
     computerNumberDOC.innerHTML = 'computer: ' + computerNumber;
     userNumberDOC.innerHTML = 'user: ' + userNumber;
     winnerDOC.innerHTML += ' - con il numero: ' + userNumber + ' vince utente';
-    
+
 } else if (userNumber < computerNumber) {
-    
+
     console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince il computer!`);
 
     //metodo insertAdjacentHTML
-    computerNumberDOC.insertAdjacentHTML("beforeend",`computer: ${computerNumber}`);
-    userNumberDOC.insertAdjacentHTML("beforeend",`user: ${userNumber}`);
+    computerNumberDOC.insertAdjacentHTML("beforeend", `computer: ${computerNumber}`);
+    userNumberDOC.insertAdjacentHTML("beforeend", `user: ${userNumber}`);
     winnerDOC.insertAdjacentHTML("beforeend", ` - con il numero: ${computerNumber} il computer vince`)
 
 } else if (userNumber === computerNumber) {
-    
+
     console.log(`utente: ${userNumber}, computer: ${computerNumber}. Pareggio!`);
 
     //metodo append
@@ -47,8 +47,8 @@ if (userNumber > computerNumber) {
     computerNumberDOC.append(`computer: ${computerNumber}`);
     winnerDOC.append(` - pareggio!`)
 
-}{
-    
+} {
+
 }
 
 
@@ -61,7 +61,7 @@ if (userNumber > computerNumber) {
 //const userMail = prompt('inserisci la tua email:'); - ho l'input in pagina
 
 // lista di mail che possono accedere
-const mailsList = ['carlo@gmail.com','pino@gmail.com','gino@gmail.com','piero@gmail.com','andrea@gmail.com','luigi@gmail.com']
+const mailsList = ['carlo@gmail.com', 'pino@gmail.com', 'gino@gmail.com', 'piero@gmail.com', 'andrea@gmail.com', 'luigi@gmail.com']
 
 // ciclo di controllo nella lista
 /*  for (let i = 0; i  < mailsList.length; i++) {
@@ -88,19 +88,29 @@ const mailsList = ['carlo@gmail.com','pino@gmail.com','gino@gmail.com','piero@gm
 
 // aggiungo event listener al pulsante del form
 
-document.getElementById('checkMailButton').addEventListener('click', function(e){ 
+document.getElementById('checkMailButton').addEventListener('click', function (e) {
     e.preventDefault();
     const emailUserDOM = document.getElementById('emailUser').value;
 
-   console.log(emailUserDOM);
+    // console.log(emailUserDOM); -- debug
 
+    const checkMailResultDOM = document.getElementById('checkMailResult');
 
-//metodo senza ciclo -- più performante
+    //metodo senza ciclo -- più performante
 
-   /*  if (mailsList.includes(emailUser)) {
-        console.log('include');
+    console.log(emailUserDOM);
+
+    if (mailsList.includes(emailUserDOM)) {
+        // console.log('include');
+        checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` è presente`;
+        checkMailResultDOM.classList.add('text-success');
+        checkMailResultDOM.classList.remove('text-danger');
+        
     } else {
-        console.log('non include');
-    } */
+        // console.log('non include');
+        checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` non è presente`;
+        checkMailResultDOM.classList.add('text-danger');
+        checkMailResultDOM.classList.remove('text-success');
+    }
 
 })
