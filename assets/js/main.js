@@ -43,18 +43,31 @@ const userMail = prompt('inserisci la tua email:');
 const mailsList = ['carlo@gmail.com','pino@gmail.com','gino@gmail.com','piero@gmail.com','andrea@gmail.com','luigi@gmail.com']
 
 // ciclo di controllo nella lista
-for (let i = 0; i  < mailsList.length; i++) {
+/*  for (let i = 0; i  < mailsList.length; i++) {
 
     const mailList = mailsList[i];
+
+    let esitoMail='respinto';
 
     //console.log(mailList);
 
     if (userMail === mailList) {
-        console.log('puoi entrare');
+        esitoMail='puoi entrare'
+        //console.log(esitoMail);
         // assegno ad i il valore "finale" in modo che termini il ciclo una volta che trova l'elemento in lista
-        i = mailsList.length
+        i = mailsList.length;
+        
     }else{
-        console.log('respinto');
+        //console.log(esitoMail);
     }
 
-}
+    console.log(esitoMail);
+}  */
+
+//metodo senza ciclo -- più performante
+
+    if (mailsList.includes(userMail)) {
+        console.log('include');
+    } else {
+        console.log('non include');
+    }
