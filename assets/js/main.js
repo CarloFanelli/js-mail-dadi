@@ -5,51 +5,54 @@
 // Math.random() * (max - min) + min -- per avere un numero random tra due parametri
 
 // creo il numero dell'utente e lo collego al DOC
-const userNumber = Math.floor(Math.random() * 6 + 1);
-const userNumberDOC = document.getElementById('user');
+document.getElementById('newGame').addEventListener('click', function (e) {
+    e.preventDefault();
 
-console.log(userNumber);
+    const userNumber = Math.floor(Math.random() * 6 + 1);
+    const userNumberDOC = document.getElementById('user');
 
-// creo il numero del computer e lo collego al DOC
-const computerNumber = Math.floor(Math.random() * 6 + 1);
-const computerNumberDOC = document.getElementById('computer');
+    console.log(userNumber);
 
-console.log(computerNumber);
+    // creo il numero del computer e lo collego al DOC
+    const computerNumber = Math.floor(Math.random() * 6 + 1);
+    const computerNumberDOC = document.getElementById('computer');
 
-//collego per il risultato
-const winnerDOC = document.getElementById('dadi');
+    console.log(computerNumber);
+
+    //collego per il risultato
+    const winnerDOC = document.getElementById('dadi');
 
 
-if (userNumber > computerNumber) {
+    if (userNumber > computerNumber) {
 
-    console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince l'utente!`);
+        console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince l'utente!`);
 
-    //metodo innerHTML
-    computerNumberDOC.innerHTML = 'computer: ' + computerNumber;
-    userNumberDOC.innerHTML = 'user: ' + userNumber;
-    winnerDOC.innerHTML += ' - con il numero: ' + userNumber + ' vince utente';
+        //metodo innerHTML
+        computerNumberDOC.innerHTML = 'computer: ' + computerNumber;
+        userNumberDOC.innerHTML = 'user: ' + userNumber;
+        winnerDOC.innerHTML = ' - con il numero: ' + userNumber + ' vince utente';
 
-} else if (userNumber < computerNumber) {
+    } else if (userNumber < computerNumber) {
 
-    console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince il computer!`);
+        console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince il computer!`);
 
-    //metodo insertAdjacentHTML
-    computerNumberDOC.insertAdjacentHTML("beforeend", `computer: ${computerNumber}`);
-    userNumberDOC.insertAdjacentHTML("beforeend", `user: ${userNumber}`);
-    winnerDOC.insertAdjacentHTML("beforeend", ` - con il numero: ${computerNumber} il computer vince`)
+        //metodo insertAdjacentHTML
+        computerNumberDOC.innerHTML = 'computer: ' + computerNumber;
+        userNumberDOC.innerHTML = 'user: ' + userNumber;
+        winnerDOC.innerHTML = ' - con il numero: ' + computerNumber + ' vince il computer';
 
-} else if (userNumber === computerNumber) {
+    } else if (userNumber === computerNumber) {
 
-    console.log(`utente: ${userNumber}, computer: ${computerNumber}. Pareggio!`);
+        console.log(`utente: ${userNumber}, computer: ${computerNumber}. Pareggio!`);
 
-    //metodo append
-    userNumberDOC.append(`utente: ${userNumber}`);
-    computerNumberDOC.append(`computer: ${computerNumber}`);
-    winnerDOC.append(` - pareggio!`)
+        //metodo append
+        computerNumberDOC.innerHTML = 'computer: ' + computerNumber;
+        userNumberDOC.innerHTML = 'user: ' + userNumber;
+        winnerDOC.innerHTML = ' - con il numero: ' + userNumber + ' pareggio';
 
-} {
+    }
 
-}
+});
 
 
 // MAIL
@@ -101,13 +104,13 @@ document.getElementById('checkMailButton').addEventListener('click', function (e
     console.log(emailUserDOM);
 
     //uso innerHTML perché così sovrascrive la vecchia frase se cambio mail senza ricaricare pagina
-    
+
     if (mailsList.includes(emailUserDOM)) {
         // console.log('include');
         checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` è presente`;
         checkMailResultDOM.classList.add('text-success');
         checkMailResultDOM.classList.remove('text-danger');
-        
+
     } else {
         // console.log('non include');
         checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` non è presente`;
