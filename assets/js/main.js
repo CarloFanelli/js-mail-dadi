@@ -100,6 +100,8 @@ document.getElementById('checkMailButton').addEventListener('click', function (e
 
     console.log(emailUserDOM);
 
+    //uso innerHTML perché così sovrascrive la vecchia frase se cambio mail senza ricaricare pagina
+    
     if (mailsList.includes(emailUserDOM)) {
         // console.log('include');
         checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` è presente`;
