@@ -4,27 +4,48 @@
 
 // Math.random() * (max - min) + min -- per avere un numero random tra due parametri
 
-// creo il numero dell'utente
+// creo il numero dell'utente e lo collego al DOC
 const userNumber = Math.floor(Math.random() * 6 + 1);
+const userNumberDOC = document.getElementById('user');
 
 console.log(userNumber);
 
-// creo il numero del computer
+// creo il numero del computer e lo collego al DOC
 const computerNumber = Math.floor(Math.random() * 6 + 1);
+const computerNumberDOC = document.getElementById('computer');
 
 console.log(computerNumber);
+
+//collego per il risultato
+const winnerDOC = document.getElementById('dadi');
+
 
 if (userNumber > computerNumber) {
 
     console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince l'utente!`);
+
+    //metodo innerHTML
+    computerNumberDOC.innerHTML = 'computer: ' + computerNumber;
+    userNumberDOC.innerHTML = 'user: ' + userNumber;
+    winnerDOC.innerHTML += ' - con il numero: ' + userNumber + ' vince utente';
     
 } else if (userNumber < computerNumber) {
     
     console.log(`utente: ${userNumber}, computer: ${computerNumber}. Vince il computer!`);
 
+    //metodo insertAdjacentHTML
+    computerNumberDOC.insertAdjacentHTML("beforeend",`computer: ${computerNumber}`);
+    userNumberDOC.insertAdjacentHTML("beforeend",`user: ${userNumber}`);
+    winnerDOC.insertAdjacentHTML("beforeend", ` - con il numero: ${computerNumber} il computer vince`)
+
 } else if (userNumber === computerNumber) {
     
     console.log(`utente: ${userNumber}, computer: ${computerNumber}. Pareggio!`);
+
+    //metodo append
+    userNumberDOC.append(`utente: ${userNumber}`);
+    computerNumberDOC.append(`computer: ${computerNumber}`);
+    winnerDOC.append(` - pareggio!`)
 
 }{
     
