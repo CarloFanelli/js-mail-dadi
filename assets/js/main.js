@@ -66,40 +66,9 @@ document.getElementById('newGame').addEventListener('click', function (e) {
 // lista di mail che possono accedere
 const mailsList = ['carlo@gmail.com', 'pino@gmail.com', 'gino@gmail.com', 'piero@gmail.com', 'andrea@gmail.com', 'luigi@gmail.com']
 
-let result = false;
-
-// ciclo di controllo nella lista
-
-/*  for (let i = 0; i  < mailsList.length; i++) {
-
-    const mailList = mailsList[i];
-
-    let esitoMail='respinto';
-
-    //console.log(mailList);
-
-    if (userMail === mailList) {
-        esitoMail='puoi entrare'
-        //console.log(esitoMail);
-        // assegno ad i il valore "finale" in modo che termini il ciclo una volta che trova l'elemento in lista
-        i = mailsList.length;
-        result = true;
-        
-    }else{
-        //console.log(esitoMail);
-    }
-
-    if (result == true){
-        console.log('ammesso');
-    }else{
-        console.log('non ammesso');
-    }
-
-    console.log(esitoMail);
-}  */
-
-
 // aggiungo event listener al pulsante del form
+
+let result = false;
 
 document.getElementById('checkMailButton').addEventListener('click', function (e) {
     e.preventDefault();
@@ -115,7 +84,7 @@ document.getElementById('checkMailButton').addEventListener('click', function (e
 
     //uso innerHTML perché così sovrascrive la vecchia frase se cambio mail senza ricaricare pagina
 
-    if (mailsList.includes(emailUserDOM)) {
+    /* if (mailsList.includes(emailUserDOM)) {
         // console.log('include');
         checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` è presente`;
         checkMailResultDOM.classList.add('text-success');
@@ -126,6 +95,31 @@ document.getElementById('checkMailButton').addEventListener('click', function (e
         checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` non è presente`;
         checkMailResultDOM.classList.add('text-danger');
         checkMailResultDOM.classList.remove('text-success');
-    }
+    } */
 
-})
+    // metodo con ciclo
+
+    for (let i = 0; i < mailsList.length; i++) {
+        const mailList = mailsList[i];
+
+        if (emailUserDOM === mailList) {
+            result = true;
+            console.log(result);
+            i = mailList.length;
+
+        } else {
+            result = false;
+            console.log(result);
+        }
+
+        if (result == true) {
+            checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` è presente`;
+            checkMailResultDOM.classList.add('text-success');
+            checkMailResultDOM.classList.remove('text-danger');
+        } else {
+            checkMailResultDOM.innerHTML = `l'indirizzo ` + emailUserDOM + ` non è presente`;
+            checkMailResultDOM.classList.add('text-danger');
+            checkMailResultDOM.classList.remove('text-success');
+        }
+    }
+}) 
