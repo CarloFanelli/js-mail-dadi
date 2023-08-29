@@ -66,7 +66,7 @@ document.getElementById('newGame').addEventListener('click', function (e) {
 // lista di mail che possono accedere
 const mailsList = ['carlo@gmail.com', 'pino@gmail.com', 'gino@gmail.com', 'piero@gmail.com', 'andrea@gmail.com', 'luigi@gmail.com']
 
-const result = 'false';
+let result = 'false';
 
 // ciclo di controllo nella lista
 /*  for (let i = 0; i  < mailsList.length; i++) {
