@@ -66,6 +66,8 @@ document.getElementById('newGame').addEventListener('click', function (e) {
 // lista di mail che possono accedere
 const mailsList = ['carlo@gmail.com', 'pino@gmail.com', 'gino@gmail.com', 'piero@gmail.com', 'andrea@gmail.com', 'luigi@gmail.com']
 
+const result = 'false';
+
 // ciclo di controllo nella lista
 /*  for (let i = 0; i  < mailsList.length; i++) {
 
@@ -80,9 +82,16 @@ const mailsList = ['carlo@gmail.com', 'pino@gmail.com', 'gino@gmail.com', 'piero
         //console.log(esitoMail);
         // assegno ad i il valore "finale" in modo che termini il ciclo una volta che trova l'elemento in lista
         i = mailsList.length;
+        result = 'true';
         
     }else{
         //console.log(esitoMail);
+    }
+
+    if (result == 'true){
+        console.log('ammesso');
+    }else{
+        console.log('non ammesso');
     }
 
     console.log(esitoMail);
